@@ -130,21 +130,40 @@
 				margin-left: 1400px;
 			}
 
+			::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			    color: lightgrey;
+			}
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color: lightgrey;
+			   opacity:  1;
+			}
+			::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color: lightgrey;
+			   opacity:  1;
+			}
+			:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			   color: lightgrey;
+			}
+			::-ms-input-placeholder { /* Microsoft Edge */
+			   color: lightgrey;
+			}
+
+
 		</style>
 	</head>
 
 	<body>
 
-		<div class="firstBox">
+		<div style="opacity:0.8" class="firstBox">
 			<img class="first-image" src="assets/feedback-banner.jpg" alt="Feedback Image">
 			<!-- <img class="white-image" src="assets/white.jpg" alt="White Image"> -->
 			<div class="loginBox">
 				<form action="/action_page.php">
 					<legend><p class="legend-text">Interview Feedback<p></legend>
   					<br>
-  				<input class="field" type="text" name="firstname" value="Username">
+  				<input class="field" type="text" name="username" value="Username">
   				<br>
-  				<input class="field" type="text" name="lastname" value="Password">
+  				<input class="field" type="password" name="password" placeholder="Password">
 			  	<br><br>
   				<input class="button"type=" submit" value="Login">
 				</form>
