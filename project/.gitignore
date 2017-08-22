@@ -1,0 +1,6 @@
+package.json
+*.pdf
+assets/images/*.
+gulpfile.js
+node_modules
+.idea
