@@ -1,6 +1,6 @@
 
 
-const NAV = function() {
+const NAV = function(options = {}) {
     return `
         <div class= "navigation-bar navigation-bar-skin">
         <nav>
@@ -10,5 +10,15 @@ const NAV = function() {
             <a class="navigation-bar-logout" href="/js/">Logout</a>
         </nav>
         </div>
+    `;
+}
+
+const Footer = function() {
+    return`
+    <div class="page-footer page-footer-skin">
+        <footer>
+         <br><p class="page-footer-text">Copyright@Softvision 2017</p>
+        </footer>
+    </div>
     `;
 }

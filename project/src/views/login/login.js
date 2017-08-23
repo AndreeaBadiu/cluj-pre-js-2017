@@ -77,15 +77,7 @@ const SubmitFeedbackResults = function() {
     `;
 }
 
-const Footer = function() {
-    return `    
-	<div class="grid login-footer login-footer-skin">
-        <footer>
-              <p class="login-footer-text col-1">Copyright@Softvision 2017</p>
-        </footer>
-    </div>
-    `;
-}
+
 
 const LoginPage = function() {
     return `
@@ -99,6 +91,5 @@ const LoginPage = function() {
 window.onload = function() {
     const divEl = document.querySelector('#app');
     divEl.innerHTML = LoginPage();
-    console.log('loaded');
 }
 
