@@ -49,10 +49,8 @@ const EvaluationsTable = function(options = {}) {
 }
 
 const EvaluationsTableHeader = function(options = {}) {    
-    const headings = [];
-    options.headings.forEach(function(el) {
-        const generateEl = `<th class="evaluations-tbl-head evaluations-tbl-head-skin">${el}</th>`;
-        headings.push(generateEl);
+    const headings = options.headings.map(function(el) {
+        return `<th class="evaluations-tbl-head evaluations-tbl-head-skin">${el}</th>`;
     })
     const headingsEl = `${headings.join('')}`;
 ;
