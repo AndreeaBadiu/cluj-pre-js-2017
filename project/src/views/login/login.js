@@ -13,8 +13,8 @@ const LoginForm = function (options) {
     
                         <div class="login-form-box-content">
                             <form action="/action_page.php">
-                                <input class="field" type="text" name="username" placeholder="Username">
-                                <input class="field" type="password" name="password" placeholder="Password">
+                                <input class="field" id="username" type="text" name="username" placeholder="Username">
+                                <input class="field" id="password" type="password" name="password" placeholder="Password">
                                 <input class="button button-skin" type="submit" value="Login">
                             </form>
                         </div>
@@ -22,17 +22,17 @@ const LoginForm = function (options) {
     
                 </div>
     `;
-}
+};
 
-const LoginHeader = function() {
+const LoginHeader = function () {
     return `
     <header>
     ${LoginForm()}
     </header>
     `;
-}
+};
 
-const SubmitFeedbackSection = function() {
+const SubmitFeedbackSection = function () {
     return `
     <div class="grid login-section1 login-section1-skin">
     <div class="col-1">
@@ -52,10 +52,9 @@ const SubmitFeedbackSection = function() {
     </article>
     </div>
     `;
+};
 
-}
-
-const SubmitFeedbackResults = function() {
+const SubmitFeedbackResults = function () {
     return `
     <div class="grid login-section2 login-section2-skin">
     <article class="login-section-text col-1">
@@ -75,21 +74,14 @@ const SubmitFeedbackResults = function() {
     </div>
 </div>
     `;
-}
+};
 
-
-
-const LoginPage = function() {
+const LoginPage = function () {
     return `
     ${LoginHeader()}
     ${SubmitFeedbackSection()}
     ${SubmitFeedbackResults()}
     ${Footer()}
     `;
-
-}
-window.onload = function() {
-    const divEl = document.querySelector('#app');
-    divEl.innerHTML = LoginPage();
-}
+};
 
