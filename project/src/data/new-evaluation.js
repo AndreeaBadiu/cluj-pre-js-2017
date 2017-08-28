@@ -23,16 +23,16 @@ const getTextareaData = function () {
     return [
         {
             title: 'Should the candidate be hired?',
-            content: 'The type of project that is suitable for the candidate Is guidance required for the candidate',
+            content: 'The type of project that is suitable for the candidate Is guidance required for the candidate'
         },
         {
             title: 'General Impressions',
-            content: '*required',
+            content: '*required'
         },
         {
-            title: 'Workflow, Leadership &amp; Soft Skills',
-            content: 'Describe the environment in which the candidate works. Describe any guidance or management experience',
-        },
+            title: 'Workflow, Leadership & Soft Skills',
+            content: 'Describe the environment in which the candidate works. Describe any guidance or management experience'
+        }
     ];
 };
 

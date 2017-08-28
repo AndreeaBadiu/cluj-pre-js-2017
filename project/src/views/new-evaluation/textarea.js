@@ -1,7 +1,7 @@
 const Textarea = function (options = {}) {
     return `<div class="content-box-same">
             <h2 class="content-box-head content-box-head-skin">${options.title}</h2>
-            <textarea class="content-box-text content-box-text-skin" rows="2">${options.content}</textarea>
+            <textarea class="content-box-text content-box-text-skin" id="${setKey(options.title)}" rows="2" placeholder='${options.content}'></textarea>
             </div>`;
 };
 
@@ -9,9 +9,6 @@ const Textarea = function (options = {}) {
 const TextareaSection = function (options = {}) {
     const section = options.map(Textarea); // (t) => Textarea(t)
 
-    section.join('');
-    return `
-      ${section}
-      `;
+    return section.join('');
 };
 

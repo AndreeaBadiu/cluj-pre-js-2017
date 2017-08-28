@@ -1,13 +1,13 @@
 const TechnicalLevelPickerHeader = function (options = {}) {
-    const headers = options.map(h => `<th class="tbl-head tbl-head-skin">${h}</th>`);
-    // const concatHeaders = headers.join("");
+    const headers = options.map(h =>
+        `<th class="tbl-head tbl-head-skin">${h}</th>`);
     return headers.join('');
 };
 
 const TechnicalLevelPickerColumn = function (options = {}) {
     const allColumns = options.map((cd) => {
         const columns = ['<td>'];
-        const columnsArr = cd.inputLevels.map(ip => `<input type="radio" id= "${ip}" name="level">`);
+        const columnsArr = cd.inputLevels.map(ip => `<input type="radio" id= "${ip}" name="level" value="${ip}">`);
         columns.push(columnsArr.join(''));
         columns.push('</td>');
         return columns.join('');
