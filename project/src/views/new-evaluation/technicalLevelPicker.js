@@ -1,26 +1,21 @@
-const TechnicalLevelPickerHeader= function(options = {}) {
-    const headers = options.map(function(h) {        
-      return `<th class="tbl-head tbl-head-skin">${h}</th>`;
-    });
-    const concatHeaders = headers.join("");
-    return concatHeaders;
-}
+const TechnicalLevelPickerHeader = function (options = {}) {
+    const headers = options.map(h => `<th class="tbl-head tbl-head-skin">${h}</th>`);
+    // const concatHeaders = headers.join("");
+    return headers.join('');
+};
 
-const TechnicalLevelPickerColumn = function(options = {}) {
+const TechnicalLevelPickerColumn = function (options = {}) {
     const allColumns = options.map((cd) => {
-        const columns = [`<td>`];
-        const columns2 = cd.inputLevels.map((ip) => `<input type="radio" id= "${ip}" name="level">` )
-        columns.push(columns2.join(''));
-        columns.push(`</td>`);
+        const columns = ['<td>'];
+        const columnsArr = cd.inputLevels.map(ip => `<input type="radio" id= "${ip}" name="level">`);
+        columns.push(columnsArr.join(''));
+        columns.push('</td>');
         return columns.join('');
-      });
-    const columns = allColumns.join("");
-    return columns;
+    });
+    return allColumns.join('');
+};
 
-}
-
-const TechnicalLevelPicker = function(options = {}) {
-
+const TechnicalLevelPicker = function (options = {}) {
     const title = `<caption class="content-box-tbl-tl content-box-tbl-tl-skin">${options.title}</caption>`;
     const headers = TechnicalLevelPickerHeader(options.headers);
     const columns = TechnicalLevelPickerColumn(options.columnData);
@@ -36,4 +31,4 @@ const TechnicalLevelPicker = function(options = {}) {
                   </tr>
               </table>
             </div> `;
-}
+};

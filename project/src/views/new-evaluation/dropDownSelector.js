@@ -1,25 +1,22 @@
-const DropdownSelector = function(options = {}) {
-  
-  const arr = [`<legend class="field-title field-title-skin">${options.legends}</legend>`];
-  const constant = options.items.map((el) => {
-    const dropDownOptions= el.options.map((e) => `<option value="${e}">${e}</option>`)
-    const dropdownEl = dropDownOptions.join("");
-    const aux = el.label.split(' ').join('_');
-    
-    return `        
+const DropdownSelector = function (options = {}) {
+    const arr = [`<legend class="field-title field-title-skin">${options.legends}</legend>`];
+    const constant = options.items.map((el) => {
+        const dropDownOptions = el.options.map(e => `<option value="${e}">${e}</option>`);
+        const dropdownEl = dropDownOptions.join('');
+        const forNameId = el.label.split(' ').join('_');
+        return `
             <ul>
              <li>
-                <label class="firstLi" for="${aux}">${el.label}</label>
-                <select name="classEvalOptions" id="${aux}">
+                <label for="${forNameId}">${el.label}</label>
+                <select name="${forNameId}" id="${forNameId}">
                 ${dropdownEl}
                 </select> 
               </li>
             </ul>
    `;
-    }
-);
-  
-    return constant.join('');
-  }
-  
-  
+    },
+    );
+
+    const selectOption = arr.push(constant.join(''));
+    return arr.join('');
+};
