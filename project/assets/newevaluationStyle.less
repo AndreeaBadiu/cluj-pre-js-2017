@@ -1,14 +1,5 @@
 @import (less) "colors.less";
 
-body {
-    margin-top: 3%;
-    margin-left: 0;
-}
-
-.body-skin {
-    background-color: @grey;
-}
-
 /* -------------------Candidate, interviewer, date inputs---------------------*/
 
 .inputs {
@@ -68,7 +59,7 @@ body {
     height: 16%;
     position: absolute;
     margin-left: 21%;
-    margin-top: 2%;
+    margin-top: 3%;
     text-align: center;
 }
 
@@ -95,18 +86,18 @@ body {
     border-collapse: collapse;
 }
 
-td {
+.newevaluation-table {
     color: @grey;
     border-top: 1px solid @black;
     border-bottom: 1px solid @black;
     border-spacing: 0;
 }
 
-td:first-child {
+.newevaluation-table:first-child {
     border-left: 1px solid @black;
 }
 
-td:last-child {
+.newevaluation-table:last-child {
     border-right: 1px solid @black;
 }
 
@@ -125,6 +116,10 @@ td:last-child {
 /* -------------------------------General Impression------------------------- */
 
 /* ------------------------Workflow, Leadership & Soft skills-----------------*/
+
+.content-box-same:first-child {
+    margin-top: 4rem;
+}
 
 .content-box-same {
     margin-top: 2rem;
@@ -169,14 +164,12 @@ td:last-child {
 /*---------------------------------- NodeJS --------------------------------- */
 
 .content-box-fields {
-    margin-top: -2rem;
     margin-bottom: 60px;
-    width: 100%;
     padding-top: 2rem;
 }
 
 .field-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .field-title-skin {

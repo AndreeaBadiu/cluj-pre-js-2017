@@ -1,22 +1,29 @@
 const LoginForm = function (options) {
     return `
     <div class="grid login-form">
+                    
     
                     <div class="col-3 login-form-background-image">
-                        <img src="assets/images/feedback-banner.jpg" alt="Feedback Image">
+                        <img class="login-image" src="assets/images/feedback-banner.jpg" alt="Feedback Image">
+                    </div>
+
+                    <div id="alert-div" class="error-div">
+                     <h2>Wrong credentials. Please try again!</h2>
                     </div>
     
                     <div class="col-1 login-form-box login-form-box-skin">
                         <div class="login-form-box-header login-form-box-header-skin">
                             <h3>Interview Feedback</h3>
                         </div>
-    
+                        
+                        
                         <div class="login-form-box-content">
-                            <form action="/action_page.php">
-                                <input class="field" id="username" type="text" name="username" placeholder="Username">
-                                <input class="field" id="password" type="password" name="password" placeholder="Password">
-                                <input class="button button-skin" type="submit" value="Login">
+                            <form>
+                                <input class="input-eval field" id="username" type="text" name="username" placeholder="Username">
+                                <input class="input-eval field" id="password" type="password" name="password" placeholder="Password">
+                                <input class="input-eval button button-skin" type="submit" value="Login">
                             </form>
+                            
                         </div>
                     </div>
     

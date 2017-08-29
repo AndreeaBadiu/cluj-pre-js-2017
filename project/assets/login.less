@@ -1,19 +1,13 @@
 @import (less) "colors.less";
 
-body {
-    background-color: @grey;
-    margin-top: 50px;
-    margin-left: 0;
-}
-
 /* First section, including the 'feedback' background image and the login form */
 
 .login-form {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .login-form-background-image {
-    width: 1897px;
+    width: 100%;
     opacity: 0.8;
 }
 
@@ -47,6 +41,16 @@ body {
     width: 100%;
 }
 
+.error-div {
+    color: black;
+    background-color: #de6565;
+    position: absolute;
+    margin-left: 25%;
+    width: 380px;
+    padding-left: 10px;
+    display: none;
+}
+
 .button {
     border: none;
     width: 120px;
@@ -71,7 +75,7 @@ body {
     width: 100%;
 }
 
-img {
+.login-image {
     float: right;
 }
 
@@ -90,10 +94,6 @@ img {
 .login-section2 {
     width: 90%;
     padding: 95px;
-}
-
-img {
-    float: right;
 }
 
 .login-section2-skin {

@@ -11,11 +11,11 @@ const EvaluationsTableHeader = function (options = {}) {
 
 const EvaluationTableRow = function (options = {}) {
     return `
-      <tr>
-          <td>${options.name}</td>
-          <td>${options.technology}</td>
-          <td>${options.level}</td>
-          <td>Detalii</td>
+      <tr class="tbl-row">
+          <td class="evaluation-table">${options.name}</td>
+          <td class="evaluation-table">${options.technology}</td>
+          <td class="evaluation-table">${options.level}</td>
+          <td class="evaluation-table">Detalii</td>
       </tr>
       `;
 };
@@ -29,7 +29,7 @@ const EvaluationsTableBody = function (options = {}) {
 
 const EvaluationsTable = function (options = {}) {
     return `
-    <div class="content content-skin" >
+    <div class="content-eval content-eval-skin" >
         <table class="evaluations-tbl evaluations-tbl-skin">
             ${EvaluationsTableHeader({
         headings: options.itemHeadings,
