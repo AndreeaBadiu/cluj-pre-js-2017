@@ -23,10 +23,7 @@ const EvaluationTableRow = function (options = {}) {
 const EvaluationsTableBody = function (options = {}) {
     const rowsElements = options.items.map(rowObj => EvaluationTableRow(rowObj));
     const rowsEl = rowsElements.join('');
-
-    return `
-          ${rowsEl}
-      `;
+    return rowsEl;
 };
 
 
@@ -45,37 +42,14 @@ const EvaluationsTable = function (options = {}) {
     `;
 };
 
-
 const EvaluationsPage = function (options = {}) {
-    const rows = [
-        {
-            name: 'Adrian Popescu',
-            technology: 'Javascript',
-            level: 'mid2',
-        },
-        {
-            name: 'Adrian Popescu2',
-            technology: 'Javascript',
-            level: 'mid2',
-        },
-        {
-            name: 'Adrian Popescu3',
-            technology: 'Javascript',
-            level: 'mid2',
-        },
-        {
-            name: 'Ioana Popescu',
-            technology: 'Javascript',
-            level: 'mid2',
-        }];
-
-    const headings = ['Nume', 'Tehnologie', 'Nivel', ''];
     return `
           ${NAV()}
-          ${EvaluationsTable({
-        items: rows,
-        itemHeadings: headings,
-    })}
+          ${EvaluationsTable(
+        {
+            items: getEvaluationsData().rows,
+            itemHeadings: getEvaluationsData().headings,
+        })}
           ${Footer()}
-      `;
+           `;
 };

@@ -3,7 +3,7 @@ const DropdownSelector = function (options = {}) {
     const constant = options.items.map((el) => {
         const dropDownOptions = el.options.map(e => `<option value="${e}">${e}</option>`);
         const dropdownEl = dropDownOptions.join('');
-        const forNameId = el.label.split(' ').join('_');
+        const forNameId = `${el.label.split(' ')[0]}_${options.legends.split(',')[0].toUpperCase()}`;
         return `
             <ul>
              <li>
