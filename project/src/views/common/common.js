@@ -7,7 +7,7 @@ const NAV = function (options = {}) {
             <img class="navigation-bar-svlogo" src="assets/images/logo.png" alt="Softvision Logo">
             <a  class="navigation-bar-active evaluations">Evaluations</a>
             <a class="new-evaluation">New Evaluation</a>
-            <a class="navigation-bar-logout logout">Logout</a>
+            <a class="navigation-bar-logout" id="logout">Logout</a>
         </nav>
         </div>
     `;

@@ -7,7 +7,7 @@ const LoginForm = function (options) {
                         <img class="login-image" src="assets/images/feedback-banner.jpg" alt="Feedback Image">
                     </div>
 
-                    <div id="alert-div" class="error-div">
+                    <div id="generalAlertElement" class="error-div">
                      <h2>Wrong credentials. Please try again!</h2>
                     </div>
     
@@ -21,7 +21,7 @@ const LoginForm = function (options) {
                             <form>
                                 <input class="input-eval field" id="username" type="text" name="username" placeholder="Username">
                                 <input class="input-eval field" id="password" type="password" name="password" placeholder="Password">
-                                <input class="input-eval button button-skin" type="submit" value="Login">
+                                <input class="input-eval button button-skin" id="login-button" type="submit" value="Login">
                             </form>
                             
                         </div>
@@ -84,11 +84,10 @@ const SubmitFeedbackResults = function () {
 };
 
 const LoginPage = function () {
-    return `
-    ${LoginHeader()}
-    ${SubmitFeedbackSection()}
-    ${SubmitFeedbackResults()}
-    ${Footer()}
-    `;
+    this.markup = `
+        ${LoginHeader()}
+        ${SubmitFeedbackSection()}
+        ${SubmitFeedbackResults()}
+        ${Footer()} `;
 };
 

@@ -1,12 +1,28 @@
-const goToNewEvaluationPage = function () {
-    const divEl = document.querySelector('#app');
-    divEl.innerHTML = NewEvaluationPage();
-    setEvents('.evaluations', goToEvaluationsPage);
-    setEvents('.logout', logout);
-    const submitButton = document.querySelector('.submit-button');
-    submitButton.addEventListener('click', getFormData);
-    removeEventListener('click', getFormData); 
+const NewEvaluationEvents = function () {
+    this.initEvents = function (build) {
+        const newEvalButton = document.querySelector('.evaluations');
+        newEvalButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const views = setToFalse();
+            views.evaluations = true;
+            build(views);
+        });
+
+        const logoutButton = document.getElementById('logout');
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const views = setToFalse();
+            views.login = true;
+            localStorage.setItem('isLogged', false);
+            build(views);
+        });
+
+        const submitButton = document.getElementById('submit-button');
+        submitButton.addEventListener('click', getFormData);
+        removeEventListener('click', getFormData);
+    };
 };
+
 
 /* ------------------ candidateDetailForm ------------------------ */
 
@@ -60,7 +76,7 @@ const getTechnicalData = function () {
     });
 };
 
-const getFormData = function (e) {
+const getFormData = function (build, e) {
     const formData = {
         candidateFormData: getCandidateDetailData(),
         technicalLvData: getTechnicalLvData(),
@@ -68,9 +84,10 @@ const getFormData = function (e) {
         technicalAreaData: getTechnicalData()
     };
     e.preventDefault();
-    const arr = JSON.parse(localStorage.getItem('evaluationsKey'));
+    const arr = JSON.parse(localStorage.getItem('evaluationsKey')) || [];
     arr.push(formData);
     localStorage.setItem('evaluationsKey', JSON.stringify(arr));
-    goToEvaluationsPage();
+    // const views = setToFalse();
+    // views.evaluations = true;
+    // build(views);
 };
-
