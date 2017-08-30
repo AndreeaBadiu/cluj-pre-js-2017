@@ -1,10 +1,14 @@
 @import (less) "colors.less";
 
+body {
+    margin: 0;
+}
+
 h3 {
     margin-top: 0;
 }
 
-input {
+.input-eval {
     border: none;
     border-bottom: 1px solid lightgrey;
     font-size: 18px;
@@ -21,15 +25,12 @@ input {
 
 nav {
     display: inline;
-    background-color: whitesmoke;
-    width: 1000px;
-    height: 100px;
 }
 
 a {
     text-decoration: none;
-    font-size: 30px;
-    margin-left: 160px;
+    font-size: 32px;
+    margin-right: 40px;
     color: black;
 }
 
@@ -55,6 +56,7 @@ a {
 .navigation-bar-skin {
     background-color: @white;
     border-bottom: 1px solid @border-grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .navigation-bar-svlogo {
@@ -65,8 +67,9 @@ a {
 }
 
 .navigation-bar-active {
-    border-bottom: 6px solid @blue;
+    border-bottom: 6px solid #03a9f4;
     padding: 18px;
+    margin-left: 103px;
 }
 
 .navigation-bar-logout {

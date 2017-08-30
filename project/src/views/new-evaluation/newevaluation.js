@@ -1,7 +1,7 @@
 const NewEvaluationPage = function () {
     return `
         ${NAV()}
-        <form onSubmit="getFormData()">
+        <form>
             ${CandidateDetailsForm()}
             <div class="content">
                 ${TechnicalLevelPicker(getTechnicalLevelData())}

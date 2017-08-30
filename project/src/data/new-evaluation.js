@@ -98,7 +98,7 @@ const getTechnicalAreaData = function () {
                     options: ['0', '1', '2', '3'],
                 },
                 {
-                    label: 'Sessions &amp; Cookies',
+                    label: 'Sessions & Cookies',
                     options: ['0', '1', '2', '3'],
                 },
             ],
@@ -161,7 +161,7 @@ const getTechnicalAreaData = function () {
         {
             items: [
                 {
-                    label: 'Data types &amp; Variables',
+                    label: 'Data types & Variables',
                     options: ['0', '1', '2', '3'],
                 },
                 {
@@ -185,7 +185,7 @@ const getTechnicalAreaData = function () {
                     options: ['0', '1', '2', '3'],
                 },
                 {
-                    label: 'Prototype &amp; OOP',
+                    label: 'Prototype & OOP',
                     options: ['0', '1', '2', '3'],
                 },
                 {

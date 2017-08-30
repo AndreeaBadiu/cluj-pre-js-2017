@@ -1,26 +1,16 @@
 @import (less) "colors.less";
 
-body {
-    margin-top: 50px;
-    margin-left: 0;
-}
-
-.body-skin {
-    background-color: @grey;
-}
-
-.content {
-    width: 1895px;
+.content-eval {
+    width: 100%;
     height: 800px;
 }
 
-.content-skin {
+.content-eval-skin {
     background-color: @white;
 }
 
 .evaluations-tbl {
     width: 1200px;
-    height: 300px;
     position: absolute;
     margin-left: 400px;
     margin-top: 180px;
@@ -35,6 +25,8 @@ body {
 .evaluations-tbl-head {
     font-size: 25px;
     font-weight: normal;
+    padding: 25px;
+    height: 20px;
 }
 
 .evaluations-tbl-head-skin {
@@ -42,12 +34,18 @@ body {
     color: @white;
 }
 
-td {
-    color: @grey;
+.evaluation-table {
+    color: #525659;
+    border-bottom: 1px solid #000;
+    padding: 30px;
 }
 
 tr {
     border-bottom: 1px solid @lightgrey;
+}
+
+.tbl-row {
+    height: 10px;
 }
 
 /*
