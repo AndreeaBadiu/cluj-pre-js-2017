@@ -15,7 +15,7 @@ const EvaluationTableRow = function (options = {}) {
           <td class="evaluation-table">${options.name}</td>
           <td class="evaluation-table">${options.technology}</td>
           <td class="evaluation-table">${options.level}</td>
-          <td class="evaluation-table">Detalii</td>
+          <td class="evaluation-table"><a class="details" id ="${setKey(options.name)}" data-name="${setKey(options.name)}" >Detalii</a></td>
       </tr>
       `;
 };
@@ -25,7 +25,6 @@ const EvaluationsTableBody = function (options = {}) {
     const rowsEl = rowsElements.join('');
     return rowsEl;
 };
-
 
 const EvaluationsTable = function (options = {}) {
     return `

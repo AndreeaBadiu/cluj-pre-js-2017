@@ -10,6 +10,12 @@ const ComponentConstructor = function (options) {
             view: new EvaluationsPage(),
             initEvents: new EvaluationsEvents()
         };
+    } else
+    if (options.details.pageDisplay) {
+        return {
+            view: new DetailsPage(),
+            initEvents: new DetailsEvents(options)
+        };
     }
     return {
         view: new NewEvaluationPage(),

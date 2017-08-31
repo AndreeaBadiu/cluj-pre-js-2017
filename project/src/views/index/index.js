@@ -1,6 +1,6 @@
 
 (function () {
-    const divEl = document.querySelector('#app');
+    const divEl = document.getElementById('app');
     const isLogged = false;
     const views = setToFalse();
 
@@ -25,6 +25,9 @@
         const component = ComponentConstructor(object);
         divEl.innerHTML = component.view.markup;
         component.initEvents.initEvents(build);
+        if (object.details.pageDisplay) {
+            component.initEvents.insertData(build);
+        }
     };
 
     build(views);
