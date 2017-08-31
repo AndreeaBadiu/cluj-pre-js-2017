@@ -1,5 +1,5 @@
 const NewEvaluationPage = function () {
-    return `
+    this.markup = `
         ${NAV()}
         <form>
             ${CandidateDetailsForm()}
@@ -8,7 +8,7 @@ const NewEvaluationPage = function () {
                 ${TextareaSection(getTextareaData())}
                 ${TechnicalAreaPicker()}
                 <div class="submit-button submit-button-skin">
-                    <input class="sub-button sub-button-skin" type="submit" value="Submit">
+                    <input class="sub-button sub-button-skin" id="submit-button" type="submit" value="Submit">
                 </div>
             </div>
         </form>

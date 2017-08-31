@@ -43,7 +43,7 @@ const EvaluationsTable = function (options = {}) {
 };
 
 const EvaluationsPage = function (options = {}) {
-    return `
+    this.markup = `
           ${NAV()}
           ${EvaluationsTable(
         {
