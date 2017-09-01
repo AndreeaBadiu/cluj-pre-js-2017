@@ -5,7 +5,10 @@ const NewEvaluationEvents = function () {
 
         const submitButton = document.getElementById('submit-button');
         submitButton.addEventListener('click', getFormData);
-        removeEventListener('click', getFormData);
+
+        document.getElementById('evaluations').classList.remove('navigation-bar-active');
+        const newEvalButton = document.getElementById('new-evaluation');
+        newEvalButton.classList.add('navigation-bar-active');
     };
 };
 
@@ -60,6 +63,7 @@ const getTechnicalData = function () {
         });
         return fieldsetsObj;
     });
+    return fieldsetsObj;
 };
 
 const getFormData = function () {
@@ -71,5 +75,6 @@ const getFormData = function () {
     };
     const arr = JSON.parse(localStorage.getItem('evaluationsKey')) || [];
     arr.push(formData);
+    console.log(formData);
     localStorage.setItem('evaluationsKey', JSON.stringify(arr));
 };

@@ -23,8 +23,9 @@ const checkIfLogout = (buttonId) => {
 
 const changeActiveTab = (buttonId) => {
     if (buttonId === 'new-evaluation') {
-        const evalButton = document.getElementById('evaluations');
-        evalButton.classList.remove('navigation-bar-active');
+        // const evalButton = document.getElementById('evaluations');
+        // evalButton.classList.remove('navigation-bar-active');
+        document.getElementById('evaluations').classList.remove('navigation-bar-active');
         const newEvalButton = document.getElementById('new-evaluation');
         newEvalButton.classList.add('navigation-bar-active');
     }
@@ -40,13 +41,7 @@ const setToFalse = () => ({
     }
 });
 
-const getRightInput = (key) => {
-    const localStorageInfo = JSON.parse(localStorage.getItem('evaluationsKey'));
-    let rightInput;
-    localStorageInfo.forEach((el) => {
-        if (options.details.name === el.candidateFormData.key) {
-            rightName = el;
-        }
-    });
-    return rightInput;
-};
+const disable = ((id) => {
+    const element = document.getElementById(id);
+    element.disabled = true;
+});

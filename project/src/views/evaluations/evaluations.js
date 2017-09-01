@@ -1,4 +1,3 @@
-
 const EvaluationsTableHeader = function (options = {}) {
     const headings = options.headings.map(el => `<th class="evaluations-tbl-head evaluations-tbl-head-skin">${el}</th>`).join('');
 
@@ -15,7 +14,7 @@ const EvaluationTableRow = function (options = {}) {
           <td class="evaluation-table">${options.name}</td>
           <td class="evaluation-table">${options.technology}</td>
           <td class="evaluation-table">${options.level}</td>
-          <td class="evaluation-table"><a class="details" id ="${setKey(options.name)}" data-name="${setKey(options.name)}" >Detalii</a></td>
+          <td class="evaluation-table"><a class="details" id ="${setKey(options.name)}" data-name="${setKey(options.name)}">Detalii</a></td>
       </tr>
       `;
 };
