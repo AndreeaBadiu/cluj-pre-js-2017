@@ -7,11 +7,3 @@ const setId = function (legend, label) {
     const splitSecond = label.split(/[ |,]/).join('');
     return splitFirst + splitSecond;
 };
-
-const setToFalse = function () {
-    return {
-        login: false,
-        evaluations: false,
-        newEvaluations: false
-    };
-};

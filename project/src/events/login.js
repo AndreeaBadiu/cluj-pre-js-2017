@@ -15,8 +15,8 @@ const LoginEvents = function () {
         const button = document.getElementById('login-button');
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const username = document.querySelector('#username').value;
-            const password = document.querySelector('#password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
             const views = checkCredentials(username, password);
             if (views != null) {
                 build(views);

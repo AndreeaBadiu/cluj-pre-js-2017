@@ -1,20 +1,13 @@
 const EvaluationsEvents = function () {
     this.initEvents = function (build) {
-        const newEvalButton = document.querySelector('.new-evaluation');
-        newEvalButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const views = setToFalse();
-            views.newEvaluation = true;
-            build(views);
-        });
+        setEvents('new-evaluation', 'newEvaluation', build);
+        setEvents('logout', 'login', build);
 
-        const logoutButton = document.getElementById('logout');
-        logoutButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const views = setToFalse();
-            views.login = true;
-            localStorage.setItem('isLogged', false);
-            build(views);
+        const views = setToFalse();
+        const detailsButtons = document.getElementsByClassName('details');
+        Array.prototype.slice.call(detailsButtons).forEach((element) => {
+            const id = element.getAttribute('id');
+            setEvents(id, 'details', build);
         });
     };
 };

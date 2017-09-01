@@ -1,21 +1,7 @@
 const NewEvaluationEvents = function () {
     this.initEvents = function (build) {
-        const newEvalButton = document.querySelector('.evaluations');
-        newEvalButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const views = setToFalse();
-            views.evaluations = true;
-            build(views);
-        });
-
-        const logoutButton = document.getElementById('logout');
-        logoutButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            const views = setToFalse();
-            views.login = true;
-            localStorage.setItem('isLogged', false);
-            build(views);
-        });
+        setEvents('evaluations', 'evaluations', build);
+        setEvents('logout', 'login', build);
 
         const submitButton = document.getElementById('submit-button');
         submitButton.addEventListener('click', getFormData);
@@ -28,9 +14,9 @@ const NewEvaluationEvents = function () {
 
 const getCandidateDetailData = function () {
     const inputData = {
-        candidate: document.querySelector('.inputs-candidate').value,
-        interviewer: document.querySelector('.inputs-interviewer').value,
-        date: document.querySelector('.inputs-date').value,
+        candidate: document.getElementById('inputs-candidate').value,
+        interviewer: document.getElementById('inputs-interviewer').value,
+        date: document.getElementById('inputs-date').value,
     };
 
     return inputData;
@@ -76,18 +62,14 @@ const getTechnicalData = function () {
     });
 };
 
-const getFormData = function (build, e) {
+const getFormData = function () {
     const formData = {
         candidateFormData: getCandidateDetailData(),
         technicalLvData: getTechnicalLvData(),
         textareaInfo: getTextarea(),
         technicalAreaData: getTechnicalData()
     };
-    e.preventDefault();
     const arr = JSON.parse(localStorage.getItem('evaluationsKey')) || [];
     arr.push(formData);
     localStorage.setItem('evaluationsKey', JSON.stringify(arr));
-    // const views = setToFalse();
-    // views.evaluations = true;
-    // build(views);
 };
