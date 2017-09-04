@@ -1,5 +1,5 @@
 const NewEvaluationEvents = function () {
-    this.initEvents = function (build) {
+    this.init = function (build) {
         setEvents('evaluations', 'evaluations', build);
         setEvents('logout', 'login', build);
 

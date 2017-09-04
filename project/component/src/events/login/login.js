@@ -1,9 +1,8 @@
 const checkCredentials = function (username, password) {
     const divElement = document.getElementById('generalAlertElement');
-    if (username === 'user' && password === 'pass') {
+    if ((username === 'user' && password === 'pass') || (username === 'user2' && password === 'pass2')) {
         localStorage.setItem('isLogged', true);
-        const views = setToFalse();
-        views.evaluations = true;
+        const views = 'evaluations';
         return views;
     }
     divElement.style.display = 'block';
@@ -11,7 +10,7 @@ const checkCredentials = function (username, password) {
 };
 
 const LoginEvents = function () {
-    this.initEvents = function (build) {
+    this.init = function (build) {
         const button = document.getElementById('login-button');
         button.addEventListener('click', (e) => {
             e.preventDefault();

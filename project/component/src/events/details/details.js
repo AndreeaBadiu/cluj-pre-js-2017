@@ -1,14 +1,15 @@
 const DetailsEvents = function (options) {
-    this.initEvents = function (build) {
+    this.init = function (build) {
         setEvents('new-evaluation', 'newEvaluation', build);
         setEvents('evaluations', 'details', build);
         setEvents('logout', 'login', build);
     };
-    this.insertData = function (build) {
+    this.insertData = function (build, name) {
         const getRightInput = () => {
             const localStorageInfo = JSON.parse(localStorage.getItem('evaluationsKey'));
+            const candidate = name;
             const rightInput = localStorageInfo.filter(el =>
-                options.details.name === setKey(el.candidateFormData.candidate));
+                candidate === setKey(el.candidateFormData.candidate));
             return rightInput;
         };
 
@@ -24,7 +25,6 @@ const DetailsEvents = function (options) {
         insertIntoForm('inputs-candidate', 'candidate', rightArr);
         insertIntoForm('inputs-interviewer', 'interviewer', rightArr);
         insertIntoForm('inputs-date', 'date', rightArr);
-
 
         // -------- Technical Level Picker ------//
 

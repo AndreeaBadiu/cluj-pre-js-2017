@@ -4,7 +4,7 @@ const LoginForm = function (options) {
                     
     
                     <div class="col-3 login-form-background-image">
-                        <img class="login-image" src="assets/images/feedback-banner.jpg" alt="Feedback Image">
+                        <img class="login-image" src="component/images/feedback-banner.jpg" alt="Feedback Image">
                     </div>
 
                     <div id="generalAlertElement" class="error-div">
@@ -43,7 +43,7 @@ const SubmitFeedbackSection = function () {
     return `
     <div class="grid login-section1 login-section1-skin">
     <div class="col-1">
-        <img width="400" src="assets/images/new%20feedback.jpg" alt="Feedback Image">
+        <img width="400" src="component/images/new%20feedback.jpg" alt="Feedback Image">
     </div>
 
     <article class="login-section-text col-1">
@@ -77,7 +77,7 @@ const SubmitFeedbackResults = function () {
     </article>
 
     <div class="col-1">
-        <img width="400" src="assets/images/results.jpg" alt="Feedback Image">
+        <img width="400" src="component/images/results.jpg" alt="Feedback Image">
     </div>
 </div>
     `;
