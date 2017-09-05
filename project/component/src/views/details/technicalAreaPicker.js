@@ -9,4 +9,6 @@ const DetailComponent = function (options = {}) {
 };
 
 const DetailTechnicalAreaPicker = (options = {}) =>
-    `${Component(getTechnicalAreaData())}`;
+    `${(getTechnicalAreaData(result =>
+        Component(JSON.parse(result).fieldsets)))}`;
+

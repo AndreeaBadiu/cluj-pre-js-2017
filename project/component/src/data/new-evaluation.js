@@ -36,8 +36,19 @@ const getTextareaData = function () {
     ];
 };
 
-const getTechnicalAreaData = function () {
-    return [
+const getTechnicalAreaData = function (result) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://localhost:3000/new-evaluation.json');
+    xhr.send();
+    xhr.onreadystatechange = (event) => {
+        if (xhr.readyState === 4) {
+            // return JSON.parse(xhr.responseText).fieldsets;
+            result(xhr.responseText);
+        }
+        return 0;
+    };
+};
+/* return [
         {
             items: [
                 {
@@ -251,5 +262,4 @@ const getTechnicalAreaData = function () {
 
 
     ]
-    ;
-};
+    ; */

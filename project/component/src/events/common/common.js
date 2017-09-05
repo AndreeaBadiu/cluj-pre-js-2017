@@ -15,16 +15,6 @@ const checkIfLogout = (buttonId) => {
     }
 };
 
-const setToFalse = () => ({
-    login: false,
-    evaluations: false,
-    newEvaluation: false,
-    details: {
-        pageDisplay: false,
-        name: ''
-    }
-});
-
 const disable = ((id) => {
     const element = document.getElementById(id);
     element.disabled = true;

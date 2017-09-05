@@ -3,11 +3,12 @@
     const isLogged = false;
     let views = '';
 
+    /*
     const login = new LoginEvents();
     const evaluations = new EvaluationsEvents();
     const newEvaluation = new NewEvaluationEvents();
     const details = new DetailsEvents();
-
+*/
 
     function getLoggedIn() {
         const user = JSON.parse(localStorage.getItem('isLogged'));
@@ -26,55 +27,54 @@
         views = 'login';
     }
 
-    const build = function (object, name) {
-        //  const component = ComponentConstructor(object);
-        // divEl.innerHTML = component.view.markup;
-        // component.events();
-        // if (object === 'details') {
-        //   component.insertData();
-        // }
-        window.interviewApp.login.init(object);
+    interviewApp.build = function (object, name) {
+        interviewApp[object].init(object);
+        if (name !== undefined) {
+            interviewApp.details.insert(object, name);
+        }
     };
-
-
+    /*
     window.interviewApp = {};
 
     window.interviewApp.login = {
-        init(object) {
-            const component = ComponentConstructor(object);
+        init() {
+            const component = ComponentConstructor('login');
             divEl.innerHTML = component.view.markup;
-            component.events.init();
+            component.events.init(build);
         }
         // destroy: login.destroy
     };
 
     window.interviewApp.evaluations = {
-        init(object) {
-            const component = ComponentConstructor(object);
+        init() {
+            const component = ComponentConstructor('evaluations');
             divEl.innerHTML = component.view.markup;
-            component.events.init();
+            component.events.init(build);
         }
         // destroy: evaluations.destroy
     };
 
     window.interviewApp.newEvaluation = {
-        init(object) {
-            const component = ComponentConstructor(object);
+        init() {
+            const component = ComponentConstructor('newEvaluation');
             divEl.innerHTML = component.view.markup;
-            component.events.init();
+            component.events.init(build);
         }
         // destroy: newEvaluation.destroy
     };
 
     window.interviewApp.details = {
-        init(object) {
-            const component = ComponentConstructor(object);
+        init() {
+            const component = ComponentConstructor('details');
             divEl.innerHTML = component.view.markup;
-            component.events.init();
+            component.events.init(build);
         },
-        insertData: details.insertData.bind(null, name),
+        insert(object, name) {
+            const component = ComponentConstructor('details');
+            component.events.insertData(build, name);
+        }
         // destroy: details.destroy
     };
-
-    build(views);
+*/
+    interviewApp.build(views);
 }());
