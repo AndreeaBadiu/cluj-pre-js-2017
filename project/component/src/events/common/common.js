@@ -1,3 +1,4 @@
+
 const setEvents = (buttonId, page, build) => {
     const button = document.getElementById(buttonId);
     button.addEventListener('click', (e) => {

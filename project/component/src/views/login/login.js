@@ -1,5 +1,6 @@
-const LoginForm = function (options) {
-    return `
+(function () {
+    const LoginForm = function (options) {
+        return `
     <div class="grid login-form">
                     
     
@@ -29,18 +30,18 @@ const LoginForm = function (options) {
     
                 </div>
     `;
-};
+    };
 
-const LoginHeader = function () {
-    return `
+    const LoginHeader = function () {
+        return `
     <header>
     ${LoginForm()}
     </header>
     `;
-};
+    };
 
-const SubmitFeedbackSection = function () {
-    return `
+    const SubmitFeedbackSection = function () {
+        return `
     <div class="grid login-section1 login-section1-skin">
     <div class="col-1">
         <img width="400" src="component/images/new%20feedback.jpg" alt="Feedback Image">
@@ -59,10 +60,11 @@ const SubmitFeedbackSection = function () {
     </article>
     </div>
     `;
-};
+    };
 
-const SubmitFeedbackResults = function () {
-    return `
+
+    const SubmitFeedbackResults = function () {
+        return `
     <div class="grid login-section2 login-section2-skin">
     <article class="login-section-text col-1">
         <h2>View feedback results</h2>
@@ -81,13 +83,17 @@ const SubmitFeedbackResults = function () {
     </div>
 </div>
     `;
-};
+    };
 
-const LoginPage = function () {
-    this.markup = `
+    const LoginPage = function () {
+        this.markup = `
         ${LoginHeader()}
         ${SubmitFeedbackSection()}
         ${SubmitFeedbackResults()}
-        ${Footer()} `;
-};
+        ${interviewApp.common.view.Footer()} `;
+    };
 
+    interviewApp.login.view = {
+        set: new LoginPage()
+    };
+}());
