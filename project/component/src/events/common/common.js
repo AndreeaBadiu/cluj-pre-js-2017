@@ -10,6 +10,11 @@ const setEvents = (buttonId, page, build) => {
     });
 };
 
+const removeEvents = (buttonId, func) => {
+    const button = document.getElementById(buttonId);
+    button.removeEventListener('click', func);
+};
+
 const checkIfLogout = (buttonId) => {
     if (buttonId === 'logout') {
         localStorage.setItem('isLogged', false);

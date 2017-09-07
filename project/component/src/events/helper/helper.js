@@ -16,3 +16,7 @@ const renderPage = function (page) {
 const setupEvent = function (page, build) {
     page.init(build);
 };
+
+const destroyEvent = function (page) {
+    page.destroy();
+};

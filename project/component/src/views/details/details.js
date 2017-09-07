@@ -4,7 +4,7 @@
     const DetailCandidateDetailsForm = function () {
         return `
     <div class="inputs inputs-skin">
-        <input class="inputs-candidate inputs-candidate-skin id="inputs-candidate" type="text" name="Candidate" value="Candidate">
+        <input class="inputs-candidate inputs-candidate-skin" id="inputs-candidate" type="text" name="Candidate" value="Candidate">
         <input class="inputs-interviewer inputs-interviewer-skin" id="inputs-interviewer" type="text" name="Interviewer" value="Interviewer">
         <input class="inputs-date inputs-date-skin" id="inputs-date" type="date">
     </div>
@@ -96,15 +96,14 @@
         const arr = options.map(el =>
             `<div class="content-box-fields">
             <fieldset class="content-box-evaluations content-box-evaluations-skin">
-                ${DropdownSelector(el)}
+                ${DetailDropdownSelector(el)}
             </fieldset>
         </div>`);
         return arr.join('');
     };
 
     const DetailTechnicalAreaPicker = (options = []) =>
-        `${Component(options)}`;
-
+        `${DetailComponent(options)}`;
 
     // ----------------------------- DetailsPage -----------------------------------
 
@@ -118,7 +117,7 @@
                     <div class="content">
                         ${DetailTechnicalLevelPicker(interviewApp.data.newEvaluation.getTechnicalLevelData())}
                         ${DetailTextareaSection(interviewApp.data.newEvaluation.getTextareaData())}
-                        ${DetailTechnicalAreaPicker()}
+                        ${DetailTechnicalAreaPicker(data)}
                     </div>
                 </form>
                 ${interviewApp.common.view.Footer()}
@@ -127,7 +126,6 @@
             console.log('ERROR!!!', e);
         });
     };
-
 
     interviewApp.details.view = {
         set: new DetailsPage()

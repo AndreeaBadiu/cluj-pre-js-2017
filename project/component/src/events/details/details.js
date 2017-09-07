@@ -2,23 +2,25 @@
     const DetailsEvents = function (options) {
         this.init = function (build) {
             setEvents('new-evaluation', 'newEvaluation', build);
-            setEvents('evaluations', 'details', build);
+            setEvents('evaluations', 'evaluations', build);
             setEvents('logout', 'login', build);
         };
-        this.insertData = function (name) {
+        this.destroy = function (build) {
+            removeEvents('new-evaluation', setEvents('new-evaluation', 'newEvaluation', build));
+            removeEvents('evaluations', setEvents('evaluations', 'evaluations', build));
+            removeEvents('new-evaluation', setEvents('logout', 'login', build));
+        };
+        this.insertData = function (index) {
             const getRightInput = () => {
                 const localStorageInfo = JSON.parse(localStorage.getItem('evaluationsKey'));
-                const candidate = name;
-                const rightInput = localStorageInfo.filter(el =>
-                    candidate === setKey(el.candidateFormData.candidate));
-                return rightInput;
+                return localStorageInfo[index];
             };
 
             // -------- inputs ---------//
 
             insertIntoForm = (id, key, arr) => {
                 const input = document.getElementById(id);
-                input.value = arr[0].candidateFormData[key];
+                input.value = arr.candidateFormData[key];
                 disable(id);
             };
             const rightArr = getRightInput();
@@ -29,7 +31,7 @@
 
             // -------- Technical Level Picker ------//
 
-            const lsId = rightArr[0].technicalLvData;
+            const lsId = rightArr.technicalLvData;
             document.getElementById(lsId).checked = true;
             radioButtons = document.getElementsByName('level');
             radioButtons.forEach((e) => {
@@ -41,7 +43,7 @@
 
             // -------- Textarea ------- //
 
-            const textareas = rightArr[0].textareaInfo;
+            const textareas = rightArr.textareaInfo;
             textareas.forEach((obj, i) => {
                 textareaKey = Object.keys(textareas[i])[0];
                 const val = obj[textareaKey];
@@ -51,7 +53,7 @@
 
             // ------- Technical Area Picker -------//
 
-            const fieldsets = rightArr[0].technicalAreaData;
+            const fieldsets = rightArr.technicalAreaData;
             const fieldsetKey = Object.keys(fieldsets);
             fieldsetKey.forEach((el) => {
                 const fieldsetObjects = fieldsets[el];

@@ -7,24 +7,30 @@ const interviewApp = {};
         init() {
             renderPage(interviewApp.login.view.set);
             setupEvent(interviewApp.login.events.set, interviewApp.build);
+        },
+        destroy() {
+            destroyEvent(interviewApp.login.events.set);
         }
-    // destroy: login.destroy
     };
 
     interviewApp.evaluations = {
         init() {
             renderPage(interviewApp.evaluations.view.set);
             setupEvent(interviewApp.evaluations.events.set, interviewApp.build);
+        },
+        destroy() {
+            destroyEvent(interviewApp.evaluations.events.set);
         }
-    // destroy: evaluations.destroy
     };
 
     interviewApp.newEvaluation = {
         init() {
             renderPage(interviewApp.newEvaluation.view.set);
             setupEvent(interviewApp.newEvaluation.events.set, interviewApp.build);
+        },
+        destroy() {
+            destroyEvent(interviewApp.newEvaluation.events.set);
         }
-    // destroy: newEvaluation.destroy
     };
 
     interviewApp.details = {
@@ -32,9 +38,11 @@ const interviewApp = {};
             renderPage(interviewApp.details.view.set);
             setupEvent(interviewApp.details.events.set, interviewApp.build);
         },
+        destroy() {
+            destroyEvent(interviewApp.details.events.set);
+        },
         insert(name) {
             interviewApp.details.events.set.insertData(name);
         }
-    // destroy: details.destroy
     };
 }());

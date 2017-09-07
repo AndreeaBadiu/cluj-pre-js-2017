@@ -10,18 +10,25 @@
         return null;
     };
 
+    const setEvent = function (build, e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const views = checkCredentials(username, password);
+        if (views != null) {
+            build(views);
+        }
+    };
+
     const LoginEvents = function () {
         this.init = function (build) {
             const button = document.getElementById('login-button');
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                const views = checkCredentials(username, password);
-                if (views != null) {
-                    build(views);
-                }
-            });
+            button.addEventListener('click', setEvent.bind(null, build));
+        };
+
+        this.destroy = function (build) {
+            const button = document.getElementById('login-button');
+            button.removeEventListener('click', setEvent.bind(null, build));
         };
     };
 

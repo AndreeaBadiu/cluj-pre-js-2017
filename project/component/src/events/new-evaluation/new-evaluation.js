@@ -11,6 +11,14 @@
             const newEvalButton = document.getElementById('new-evaluation');
             newEvalButton.classList.add('navigation-bar-active');
         };
+
+        this.destroy = function (build) {
+            removeEvents('evaluations', setEvents('evaluations', 'evaluations', build));
+            removeEvents('logout', setEvents('evaluations', 'evaluations', build));
+
+            const submitButton = document.getElementById('submit-button');
+            submitButton.removeEventListener('click', getFormData);
+        };
     };
 
 
@@ -34,7 +42,7 @@
     /* ------------------------- Textarea ----------------------------- */
 
     const getTextarea = function () {
-        const textarea = getTextareaData().map((el) => {
+        const textarea = interviewApp.data.newEvaluation.getTextareaData().map((el) => {
             const key = setKey(el.title);
             const textareaObj = {};
             textareaObj[key] = document.getElementById(setKey(el.title)).value;
@@ -53,16 +61,19 @@
 
     const getTechnicalData = function () {
         const fieldsetsObj = {};
-        const fieldsetData = getTechnicalAreaData().map((el) => {
-            const legend = setKey(el.legends);
-            fieldsetsObj[legend] = {};
-            const all = {};
-            el.items.forEach((i) => {
-                const label = setId(el.legends, i.label);
-                all[label] = getSelectedOption(label);
-                fieldsetsObj[legend] = all;
-            });
-            return fieldsetsObj;
+        interviewApp.data.newEvaluation.getTechnicalAreaData().then((data) => {
+            data.map((el) => {
+                const legend = setKey(el.legends);
+                fieldsetsObj[legend] = {};
+                const all = {};
+                el.items.forEach((i) => {
+                    const label = setId(el.legends, i.label);
+                    all[label] = getSelectedOption(label);
+                    fieldsetsObj[legend] = all;
+                });
+                return fieldsetsObj;
+            })
+            ;
         });
         return fieldsetsObj;
     };

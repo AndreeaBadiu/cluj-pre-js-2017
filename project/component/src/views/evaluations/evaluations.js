@@ -9,19 +9,19 @@
       `;
     };
 
-    const EvaluationTableRow = function (options = {}) {
+    const EvaluationTableRow = function (options = {}, index) {
         return `
       <tr class="tbl-row">
           <td class="evaluation-table">${options.name}</td>
           <td class="evaluation-table">${options.technology}</td>
           <td class="evaluation-table">${options.level}</td>
-          <td class="evaluation-table"><a class="details" id ="${setKey(options.name)}" data-name="${setKey(options.name)}">Detalii</a></td>
+          <td class="evaluation-table"><label>Detalii</label><button class="details btn" id ="${index}" data-name="${index}">+</button></td>
       </tr>
       `;
     };
 
     const EvaluationsTableBody = function (options = {}) {
-        const rowsElements = options.items.map(rowObj => EvaluationTableRow(rowObj));
+        const rowsElements = options.items.map((rowObj, index) => EvaluationTableRow(rowObj, index));
         const rowsEl = rowsElements.join('');
         return rowsEl;
     };

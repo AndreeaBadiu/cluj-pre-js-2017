@@ -9,6 +9,16 @@
                 setEvents(id, 'details', build);
             });
         };
+        this.destroy = function (build) {
+            removeEvents('new-evaluation', setEvents('new-evaluation', 'newEvaluation', build));
+            removeEvents('logout', setEvents('logout', 'login', build));
+
+            const detailsButtons = document.getElementsByClassName('details');
+            Array.prototype.slice.call(detailsButtons).forEach((element) => {
+                const id = element.getAttribute('id');
+                removeEvents(id, setEvents(id, 'details', build));
+            });
+        };
     };
 
     interviewApp.evaluations.events = {

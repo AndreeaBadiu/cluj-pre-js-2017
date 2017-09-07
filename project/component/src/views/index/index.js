@@ -2,6 +2,7 @@
     const divEl = document.getElementById('app');
     const isLogged = false;
     let views = '';
+    let currentPage = '';
 
     function getLoggedIn() {
         const user = JSON.parse(localStorage.getItem('isLogged'));
@@ -21,7 +22,11 @@
     }
 
     interviewApp.build = function (object, name) {
-        interviewApp[object].init(object);
+        if (currentPage !== '') {
+            interviewApp[currentPage].destroy(interviewApp.build);
+        }
+        currentPage = object;
+        interviewApp[object].init();
         if (name !== undefined) {
             interviewApp[object].insert(name);
         }
