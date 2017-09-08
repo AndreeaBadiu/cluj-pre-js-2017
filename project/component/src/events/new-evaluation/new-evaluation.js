@@ -59,36 +59,34 @@
         return e.options[e.selectedIndex].value;
     };
 
-    const getTechnicalData = function () {
+    const getTechnicalData = function (data) {
         const fieldsetsObj = {};
-        interviewApp.data.newEvaluation.getTechnicalAreaData().then((data) => {
-            data.map((el) => {
-                const legend = setKey(el.legends);
-                fieldsetsObj[legend] = {};
-                const all = {};
-                el.items.forEach((i) => {
-                    const label = setId(el.legends, i.label);
-                    all[label] = getSelectedOption(label);
-                    fieldsetsObj[legend] = all;
-                });
-                return fieldsetsObj;
-            })
-            ;
+        data.forEach((el) => {
+            const legend = setKey(el.legends);
+            fieldsetsObj[legend] = {};
+            const all = {};
+            el.items.forEach((i) => {
+                const label = setId(el.legends, i.label);
+                all[label] = getSelectedOption(label);
+                fieldsetsObj[legend] = all;
+            });
         });
-        return fieldsetsObj;
-    };
 
-    const getFormData = function () {
+
         const formData = {
             candidateFormData: getCandidateDetailData(),
             technicalLvData: getTechnicalLvData(),
             textareaInfo: getTextarea(),
-            technicalAreaData: getTechnicalData()
+            technicalAreaData: fieldsetsObj
         };
+
         const arr = JSON.parse(localStorage.getItem('evaluationsKey')) || [];
         arr.push(formData);
-        console.log(formData);
         localStorage.setItem('evaluationsKey', JSON.stringify(arr));
+    };
+
+    const getFormData = function () {
+        interviewApp.data.newEvaluation.getTechnicalAreaData().then(data => getTechnicalData(data));
     };
 
     interviewApp.newEvaluation.events = {

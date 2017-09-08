@@ -67,7 +67,6 @@ interviewApp.data = {};
                                 const response = JSON.parse(xhr.responseText).fieldsets;
                                 resolve(response);
                             } catch (e) {
-                                console.error('Whoopsee', e);
                                 reject('ERROR');
                             }
                         } else {

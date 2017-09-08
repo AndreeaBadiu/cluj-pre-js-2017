@@ -13,6 +13,7 @@
         this.insertData = function (index) {
             const getRightInput = () => {
                 const localStorageInfo = JSON.parse(localStorage.getItem('evaluationsKey'));
+                console.log(localStorageInfo[index]);
                 return localStorageInfo[index];
             };
 
@@ -54,6 +55,7 @@
             // ------- Technical Area Picker -------//
 
             const fieldsets = rightArr.technicalAreaData;
+            console.log(fieldsets);
             const fieldsetKey = Object.keys(fieldsets);
             fieldsetKey.forEach((el) => {
                 const fieldsetObjects = fieldsets[el];
