@@ -6,9 +6,9 @@
             setEvents('logout', 'login', build);
         };
         this.destroy = function (build) {
-            removeEvents('new-evaluation', setEvents('new-evaluation', 'newEvaluation', build));
-            removeEvents('evaluations', setEvents('evaluations', 'evaluations', build));
-            removeEvents('new-evaluation', setEvents('logout', 'login', build));
+            removeEvents('new-evaluation', setEvents.bind(null, 'new-evaluation', 'newEvaluation', build));
+            removeEvents('evaluations', setEvents.bind(null, 'evaluations', 'evaluations', build));
+            removeEvents('new-evaluation', setEvents.bind(null, 'logout', 'login', build));
         };
         this.insertData = function (index) {
             const getRightInput = () => {

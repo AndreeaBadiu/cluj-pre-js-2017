@@ -10,8 +10,8 @@
             });
         };
         this.destroy = function (build) {
-            removeEvents('new-evaluation', setEvents('new-evaluation', 'newEvaluation', build));
-            removeEvents('logout', setEvents('logout', 'login', build));
+            removeEvents('new-evaluation', setEvents.bind(null, 'new-evaluation', 'newEvaluation', build));
+            removeEvents('logout', setEvents.bind(null, 'logout', 'login', build));
 
             const detailsButtons = document.getElementsByClassName('details');
             Array.prototype.slice.call(detailsButtons).forEach((element) => {

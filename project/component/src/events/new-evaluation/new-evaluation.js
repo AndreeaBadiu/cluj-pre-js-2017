@@ -13,8 +13,8 @@
         };
 
         this.destroy = function (build) {
-            removeEvents('evaluations', setEvents('evaluations', 'evaluations', build));
-            removeEvents('logout', setEvents('evaluations', 'evaluations', build));
+            removeEvents('evaluations', setEvents.bind(null, 'evaluations', 'evaluations', build));
+            removeEvents('logout', setEvents.bind(null, 'evaluations', 'evaluations', build));
 
             const submitButton = document.getElementById('submit-button');
             submitButton.removeEventListener('click', getFormData);
